@@ -3,10 +3,6 @@ import Post from './components/Post';
 import Link from 'next/link';
 import { Metadata } from 'next';
 
-export const metadata = {
-  title: 'Nick\'s Social Media',
-}
-
 async function getPosts() {
   const posts = await prisma.post.findMany({
     where: {published: true},
