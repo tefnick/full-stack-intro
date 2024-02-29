@@ -4,14 +4,14 @@ import { NextResponse } from "next/server"
 export async function POST(request) {
     console.log("creating a new post");
     const res = await request.json()
-    const {title, content} = res;
+    const {title, content, name} = res;
 
     const result = await prisma.post.create({
         data: {
             title,
             content,
             author: {create: {
-                name: 'Nick'
+                name: name
             }},
             published: true
         }

@@ -7,10 +7,15 @@ import Loading from './loading';
 export default function AddPost() {
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
+    const [name, setName] = useState('');
     const router = useRouter()
 
     const handleTitleChange = (event) => {
         setTitle(event.target.value);
+    };
+
+    const handleNameChange = (event) => {
+        setName(event.target.value);
     };
 
     const handleContentChange = (event) => {
@@ -26,7 +31,7 @@ export default function AddPost() {
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ title, content })
+                body: JSON.stringify({ title, content, name })
             })
 
             router.refresh()
@@ -36,6 +41,7 @@ export default function AddPost() {
 
         setTitle('');
         setContent('');
+        setName('');
     };
 
     return (
@@ -46,6 +52,17 @@ export default function AddPost() {
                 <p className='font-light'>Tell us, what's on your mind?</p>
                 <section className='bg-slate-200 p-7 mt-4 shadow shadow-lg rounded-lg text-center'>
                     <form onSubmit={handleSubmit} className='relative mb-8 border-spacing-5'>
+                        <div>
+                            <label htmlFor="name">Name:</label>
+                            <input
+                                type="text"
+                                id="name"
+                                value={name}
+                                onChange={handleNameChange}
+                                required
+                                className='line-clamp-3 mt-2 mb-4 shadow-slate-200 shadow-lg rounded min-h-9'
+                            />
+                        </div>
                         <div>
                             <label htmlFor="title">Title:</label>
                             <input
