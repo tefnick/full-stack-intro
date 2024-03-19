@@ -46,11 +46,11 @@ export default function AddPost() {
 
     return (
         <Suspense fallback={<Loading/>}>
-        <main className='relative flex min-h-screen bg-teal-400 font-sans'>
-            <section className='flex-col justify-center overflow-hidden py-6 px-6 mx-auto text-center'>
+        <main className='flex min-h-screen bg-teal-400 font-sans'>
+            <section className='flex-col overflow-hidden py-6 px-6 mx-auto w-full md:w-full lg:w-1/2'>
                 <h1 className='font-semibold mt-4 text-center animate-pulse mb-4'>Add Post</h1>
-                <p className='font-light'>Tell us, what's on your mind?</p>
-                <section className='bg-slate-200 p-7 mt-4 shadow shadow-lg rounded-lg text-center'>
+                <p className='font-light text-center'>Tell us, what's on your mind?</p>
+                <section className='bg-slate-200 p-7 mt-4 shadow-lg rounded-lg'>
                     <form onSubmit={handleSubmit} className='relative mb-8 border-spacing-5'>
                         <div>
                             <label htmlFor="name">Name:</label>
@@ -60,7 +60,7 @@ export default function AddPost() {
                                 value={name}
                                 onChange={handleNameChange}
                                 required
-                                className='line-clamp-3 mt-2 mb-4 shadow-slate-200 shadow-lg rounded min-h-9'
+                                className='line-clamp-3 mt-2 mb-4 shadow-slate-200 shadow-lg rounded min-h-9 w-full'
                             />
                         </div>
                         <div>
@@ -71,7 +71,7 @@ export default function AddPost() {
                                 value={title}
                                 onChange={handleTitleChange}
                                 required
-                                className='line-clamp-3 mt-2 mb-4 shadow-slate-200 shadow-lg rounded min-h-9'
+                                className='line-clamp-3 mt-2 mb-4 shadow-slate-200 shadow-lg rounded min-h-9 w-full'
                             />
                         </div>
                         <div>
@@ -81,10 +81,10 @@ export default function AddPost() {
                                 value={content}
                                 onChange={handleContentChange}
                                 required
-                                className='line-clamp-3 mt-4 mb-6 shadow-slate-300 shadow-lg rounded min-h-9'
+                                className='line-clamp-3 mt-4 mb-6 shadow-slate-300 shadow-lg rounded min-h-24 w-full'
                             />
                         </div>
-                        <button type="submit" className='relative bg-cyan-600 hover:bg-emerald-500 text-white font-bold py-2 px-4 rounded shadow-lg'>Submit</button>
+                        <button type="submit" className='bg-cyan-600 hover:bg-emerald-500 text-white font-bold py-2 px-4 mt-4 rounded shadow-lg'>Submit</button>
                     </form>
                 </section>
                 <div className='flex flex-row justify-center'>
